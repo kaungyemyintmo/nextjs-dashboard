@@ -40,6 +40,11 @@ export type LatestInvoice = {
 };
 
 // The database returns a number for amount, but we later format it to a string with the formatCurrency function
+
+// Omit<T, K> is a TypeScript utility type that removes a specific key (K) from an object type (T).
+// In this case, we're removing the 'amount' key from the LatestInvoice type.
+// This is useful because we want to define the LatestInvoiceRaw type with a number for the amount property,
+// but it was initally defined as a string in the LatestInvoice type.
 export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
   amount: number;
 };
