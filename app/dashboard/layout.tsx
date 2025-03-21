@@ -6,6 +6,9 @@
 
 import SideNav from '@/app/ui/dashboard/sidenav';
  
+// partial rendering 
+export const experimental_ppr = true;
+
 // the children prop can either be a page or another layout
 // the pages inside dashboard will be automatically nested inside a <Layout /> 
 export default function Layout({ children }: { children: React.ReactNode }) {
