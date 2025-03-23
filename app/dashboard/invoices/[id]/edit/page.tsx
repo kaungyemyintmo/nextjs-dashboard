@@ -6,7 +6,11 @@ import { fetchInvoiceById } from '@/app/lib/data';
 export default async function Page(
     props: { params: Promise <{id: string}> }) {
         const params = await props.params;
-        const id = params.id;
+        //console.log(params);
+        console.log(params.id); // %24%7Bid%7D
+        const id = decodeURIComponent(params.id);
+        console.log(id); // ${id}
+        // const id = params.id;
         const [ invoice, customers] = await Promise.all([
             fetchInvoiceById(id),
             fetchCustomers(),
